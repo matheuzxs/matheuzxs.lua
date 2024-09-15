@@ -1,0 +1,55 @@
+
+
+  local DarkLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkMoonXLib/main/Source.lua"))()
+      
+      local DarkWindow = DarkLib:MakeWindow({
+        Title = "matheuzxs : Flash Point Worlds Collide",
+        SubTitle = "By : matheuzxs",
+        LoadText = "Discord : matheuzxs",
+        Flags = "matheuzxs.lua"
+      })
+      
+      DarkWindow:AddMinimizeButton({
+        Button = {
+          Image = "rbxassetid://110106459736431"
+        },
+        UICorner = {true,
+          CornerRadius = UDim.new(0.5, 0)
+        },
+        UIStroke = {false, {
+        }}
+      })
+
+    local Discord = DarkWindow:MakeTab({Name = "Discord", Icon = "server"})
+local Section = Discord:AddSection({"Join in the Server pliss"})
+    Discord:AddDiscordInvite({
+        DiscordTitle = "matheuzxs : Community",
+        DiscordIcon = "rbxassetid://110106459736431",
+        DiscordLink = "https://discord.gg/jTdmgbNaBm"
+      })
+local Tab = DarkWindow:MakeTab({Name = "Main", Icon = "Home"})
+
+local Section = Tab:AddSection({"Velocity"})
+local Slider = Tab:AddSlider({
+  Name = "Infinite Speed",
+  MinValue = 7,
+  MaxValue = 5000,
+  Default = 7,
+  Increase = 1,
+  Callback = function(Value)
+    while true do task.wait()
+      game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+      end
+  end
+})
+
+Tab:AddSection({"Themes"})
+      Tab:AddDropdown({
+         Name = "UI Themes",
+         Options = DarkLib:GetThemes(),
+         Default = {"Grape"},
+         Flag = "ThemeUI",
+         Callback = function(Value)
+           DarkLib:SetTheme(Value)
+         end
+       } )
